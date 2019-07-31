@@ -1,6 +1,15 @@
-# TodoList [REACT]
+<h1 align="center">Todo In React</h1>
+<p align="center">A simple todo manager, responsive and bare minimal application based on React. Made with ❤️ in Tanzania.</p>
 
-This is the code for the crash course on YouTube
+
+<p align="center">
+  <a href="https://app.netlify.com/sites/todo-in-react1/deploys"><img src="https://api.netlify.com/api/v1/badges/55d69da5-ce84-49cb-bdba-4ca994430609/deploy-status" alt="Netlify Status"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"></a>
+</p>
+
+## Progress
+
+Todo in React is in development right now, Wanna check out the components? sure!! .
 
 ## Quick Start
 
@@ -15,6 +24,14 @@ npm start
 npm run build
 ```
 
+## Status
+
+In development v.0.0.1
+
+
 ## Author
 
-Alpha Olomi
+Alpha Olomi [hello@alphaolomi.com](mailto:hello@alphaolomi.com)
+
+## License
+MIT License
