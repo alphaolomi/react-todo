@@ -3,6 +3,7 @@
 
 
 <p align="center">
+  <a href="https://app.netlify.com/sites/todo-in-react1/deploys"><img src="https://api.netlify.com/api/v1/badges/55d69da5-ce84-49cb-bdba-4ca994430609/deploy-status" alt="Netlify Status"></a>
   <a href="#"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"></a>
 </p>
 
