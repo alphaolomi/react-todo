@@ -4,7 +4,7 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-import './App.css';
+// import './App.css';
 import Todos from "./components/Todos";
 import AddTodo from "./components/AddTodo";
 import Header from "./components/layout/Header";
@@ -46,20 +46,20 @@ function App() {
 
     return (
         <Router>
-            <div className="app">
-                {/*<Switch>*/}
-                    <Header/>
+            <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
+                <div className="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+                    {/*<Header/>*/}
                     <Route
                         exact path='/'
                         render={() => (
                             <React.Fragment>
-                                <Todos todos={todos} completeTodo={completeTodo} removeTodo={removeTodo}/>
                                 <AddTodo addTodo={addTodo}/>
+                                <Todos todos={todos} completeTodo={completeTodo} removeTodo={removeTodo}/>
                             </React.Fragment>
                         )}
                     />
                     <Route path='/about' component={About}/>
-                {/*</Switch>*/}
+                </div>
             </div>
         </Router>
     );
