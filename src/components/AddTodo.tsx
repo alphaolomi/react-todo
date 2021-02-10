@@ -26,7 +26,7 @@ const AddTodo = (props: { addTodo: Function }) => {
         }}
       />
 
-      <Button type="submit" color="primary is-medium">
+      <Button  className=" is-medium"  type="submit" color="primary">
         Submit
       </Button>
     </form>
