@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 // import Navbar from "react-bulma-components/lib/components/navbar";
 import { Navbar } from "react-bulma-components";
