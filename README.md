@@ -1,6 +1,15 @@
 # Getting Started with Create React App
 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+=======
+<p align="center">
+<img src="https://img.shields.io/badge/framework -react.js-purple" alt="react.js">
+  <img src="https://github.com/alphaolomi/reactjs-todo/workflows/CI/badge.svg" alt="CI">
+  <img src="https://travis-ci.com/alphaolomi/reactjs-todo.svg?branch=master" alt="travis build">
+  
+</p>
+
 
 ## Available Scripts
 
