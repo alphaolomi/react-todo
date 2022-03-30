@@ -1,60 +1,60 @@
-import React, { useState, useEffect } from "react";
-import * as uuid from "uuid";
-import axios from "axios";
+import { useState, useEffect } from "react";
 import Todos from "../components/Todos";
 import AddTodo from "../components/AddTodo";
-import { List } from "react-bulma-components";
-interface Todo {
-  id: string;
-  title: string;
-  completed: string;
-}
+import { Todo } from "../types";
+import Page from "../components/layout/Page";
 
-const Home = (props: any) => {
-  const [todos, setTodos] = useState<Array<Todo>>([]);
+const BASE_URL = "https://jsonplaceholder.typicode.com";
+const LIMIT = 10;
+
+const Home = () => {
+  const [todos, setTodos] = useState<Todo[]>([]);
   useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
-      .then((res) => setTodos(res.data));
+    fetch(`${BASE_URL}/todos?_limit=${LIMIT}`)
+      .then((res) => res.json())
+      .then((data) => setTodos(data));
   }, []);
 
-  // Toggle Complete
-  const markComplete = (id: string) => {
-    setTodos(
-      todos.map((todo: any) => {
-        if (todo.id === id) {
-          todo.completed = !todo.completed;
-        }
-        return todo;
-      })
+  const markComplete = (id: Todo["id"]) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
     );
   };
 
-  // Delete Todo
   const delTodo = (id: string) => {
-    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
+    fetch(`${BASE_URL}/todos/${id}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+      })
+      .catch((err) => console.log(err));
   };
 
-  // Add Todo
-  const addTodo = (title: string) => {
-    axios
-      .post("https://jsonplaceholder.typicode.com/todos", {
+  const addTodo = (title: Todo["title"]) => {
+    fetch(`${BASE_URL}/todos`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
         title,
         completed: false,
-      })
-      .then((res) => {
-        res.data.id = uuid.v4();
-        setTodos([...todos, res.data]);
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setTodos([...todos, data]);
       });
   };
 
   return (
-    <>
+    <Page>
       <AddTodo addTodo={addTodo} />
-      <List hoverable>
-        <Todos todos={todos} markComplete={markComplete} delTodo={delTodo} />
-      </List>
-    </>
+      <Todos todos={todos} markComplete={markComplete} delTodo={delTodo} />
+    </Page>
   );
 };
 
