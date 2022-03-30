@@ -1,17 +1,16 @@
-import React from "react";
-import { Container } from "react-bulma-components";
+import Page from "../components/layout/Page";
 
-function About() {
+/**
+ * About Page
+ * @returns {JSX.Element}
+ */
+const About = () => {
   return (
-    <Container>
-      <div className="columns">
-        <div className="column">
-        <h1 className="title">About</h1>
-        <p>This is the Todo app v2.0.0</p>
-        </div>
-      </div>
-    </Container>
+    <Page>
+      <h1 className="">About</h1>
+      <p>This is the Todo app v3.0.0</p>
+    </Page>
   );
-}
+};
 
 export default About;
