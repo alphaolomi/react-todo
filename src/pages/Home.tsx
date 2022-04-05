@@ -9,10 +9,14 @@ const LIMIT = 10;
 
 const Home = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
+  let controller = new AbortController();
+  const signal = controller.signal;
   useEffect(() => {
-    fetch(`${BASE_URL}/todos?_limit=${LIMIT}`)
+    fetch(`${BASE_URL}/todos?_limit=${LIMIT}`, { signal })
       .then((res) => res.json())
-      .then((data) => setTodos(data));
+      .then((data) => setTodos(data))
+      .catch((err) => console.log(err));
+    return () => controller.abort();
   }, []);
 
   const markComplete = (id: Todo["id"]) => {
