@@ -1,6 +1,6 @@
 import React from "react";
-
 import { Todo } from "../types";
+
 interface TodoItemProps {
   todo: Todo;
   markComplete: (id: Todo["id"]) => void;
