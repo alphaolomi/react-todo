@@ -9,10 +9,18 @@ interface TodoItemProps {
 
 const TodoItem = ({ todo, delTodo, markComplete }: TodoItemProps) => {
   return (
-    <li>
-      <input type="checkbox" onChange={() => markComplete(todo.id)} />{" "}
-      {todo.title}{" "}
-      <button type={"button"} className="" onClick={() => delTodo(todo.id)} >
+    <li
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <div>
+        <input type="checkbox" onChange={() => markComplete(todo.id)} />{" "}
+        {todo.title}
+      </div>
+      <button type={"button"} className="" onClick={() => delTodo(todo.id)}>
         x
       </button>
     </li>

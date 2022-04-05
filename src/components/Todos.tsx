@@ -12,6 +12,9 @@ const Todos = ({ todos, markComplete, delTodo }: TodosProps) => {
   return (
     <ul
       style={{
+        width: "100%",
+        padding: "0",
+        marginBottom: "3rem",
         listStyle: "none",
       }}
     >
