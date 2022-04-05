@@ -1,11 +1,19 @@
 import React, { useState } from "react";
+import { Todo } from "../types";
 
-const AddTodo = (props: { addTodo: Function }) => {
+interface AddTodoProps {
+  addTodo: (title: Todo["title"]) => void;
+}
+const AddTodo = ({ addTodo }: AddTodoProps) => {
   const [title, setTitle] = useState("");
 
-  const onSubmit = (e: any) => {
+  const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    props.addTodo(title);
+    if (!title) {
+      alert("Please enter a title");
+      return;
+    }
+    addTodo(title);
     setTitle("");
   };
 
@@ -15,7 +23,6 @@ const AddTodo = (props: { addTodo: Function }) => {
         <input
           type="text"
           name="title"
-          className="input is-medium"
           style={{ flex: "10", padding: "5px" }}
           placeholder="Add Todo .."
           value={title}
@@ -24,7 +31,7 @@ const AddTodo = (props: { addTodo: Function }) => {
           }}
         />
 
-        <button className="" type="submit" color="primary">
+        <button className="" type="submit">
           Submit
         </button>
       </form>
