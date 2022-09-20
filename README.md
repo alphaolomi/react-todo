@@ -1,4 +1,4 @@
-# Todo App
+# Todo App [![Netlify Status](https://api.netlify.com/api/v1/badges/55d69da5-ce84-49cb-bdba-4ca994430609/deploy-status)](https://app.netlify.com/sites/react-in-todo/deploys)
 
 A minimal and basic todo app.
 
